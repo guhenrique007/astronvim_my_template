@@ -50,6 +50,11 @@ return {
     },
     {
       "<leader>xo",
+      ":CopilotChatOpen",
+      desc = "CopilotChat - Open chat window",
+    },
+    {
+      "<leader>xO",
       "<cmd>CopilotChatBuffer  /COPILOT_REFACTOR Optimize the selected code to improve performance and readablilty.<cr>",
       desc = "CopilotChat - Optimize the selected code to improve performance and readablilty.",
     }
