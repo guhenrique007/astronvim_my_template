@@ -39,8 +39,10 @@ return {
           ["J"] = { "5j", desc = "Jump 5 lines for j" },
           ["K"] = { "5k", desc = "Jump 5 lines for k" },
           ["<A-j>"] = { ":m+<cr>", desc = "Move to line below" }, -- need to enable alt key (MacOS)
-          ["<A-k>"] = { ":m-2<cr>", desc = "Move to line above" }, -- need to enable alt key
           ["<M-j>"] = { ":m+<cr>", desc = "Move to line below" }, -- need to enable alt key
+          ["<A-Down>"] = { ":m+<cr>", desc = "Move to line below" }, -- need to enable alt key (MacOS)
+          ["<A-Up>"] = { ":m-2<cr>", desc = "Move to line above" }, -- need to enable alt key
+          ["<A-k>"] = { ":m-2<cr>", desc = "Move to line above" }, -- need to enable alt key
           ["<M-k>"] = { ":m-2<cr>", desc = "Move to line above" }, -- need to enable alt key
           ["<leader>l"] = { "$", desc = "go to end of line" },
           ["<leader>h"] = { "_", desc = "go to start of line" },
