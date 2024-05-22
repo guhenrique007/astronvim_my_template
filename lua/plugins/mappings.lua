@@ -33,6 +33,17 @@ return {
           -- Disable global mappings
           ["|"] = { "" },
           ["\\"] = { "" },
+          ["<Leader>l"] = false,
+          ["<Leader>la"] = false,
+          ["<Leader>lc"] = false,
+          ["<Leader>lf"] = false,
+          ["<Leader>lm"] = false,
+          ["<Leader>lr"] = false,
+          ["<Leader>ls"] = false,
+          ["<Leader>lS"] = false,
+          ["<Leader>lL"] = false,
+          ["<Leader>ld"] = false,
+          ["<Leader>Ld"] = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
 
           -- Moving
           ["<leader>j"] = { "J", desc = "Join line below" },
@@ -46,6 +57,10 @@ return {
           ["<M-k>"] = { ":m-2<cr>", desc = "Move to line above" }, -- need to enable alt key
           ["<leader>l"] = { "$", desc = "go to end of line" },
           ["<leader>h"] = { "_", desc = "go to start of line" },
+          ["<A-l>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+          ["<M-l>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+          ["<A-h>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+          ["<M-h>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
           -- Split window
           ["<leader>v"] = { ":vs<cr>", desc = "Vertical Split" },
@@ -88,9 +103,58 @@ return {
             desc = "Declaration of current symbol",
             cond = "textDocument/declaration",
           },
+          -- Disable default
+          ["<leader>l"] = false,
           ["<Leader>lS"] = false,
           ["<Leader>ls"] = false,
           ["<Leader>ld"] = false,
+          ["<Leader>l"] = false,
+          ["<Leader>la"] = false,
+          ["<Leader>lc"] = false,
+          ["<Leader>lf"] = false,
+          ["<Leader>lm"] = false,
+          ["<Leader>lr"] = false,
+          ["<Leader>lL"] = false,
+          ["<Leader>ll"] = false,
+          ["<Leader>lI"] = false,
+          ["<Leader>lh"] = false,
+          ["<Leader>li"] = false,
+          ["<Leader>lG"] = false,
+          ["<Leader>lD"] = false,
+          ["<Leader>lR"] = false,
+          -- Overwrite old ones
+          ["<Leader>L"] = { desc = "Language tools" },
+          ["<Leader>LI"] = {
+            "<Cmd>NullLsInfo<CR>",
+            desc = "Null-ls information",
+            cond = function() return vim.fn.exists ":NullLsInfo" > 0 end,
+          },
+          ["<Leader>LD"] = { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" },
+          ["<Leader>LG"] = {
+            function() vim.lsp.buf.workspace_symbol() end,
+            desc = "Search workspace symbols",
+            cond = "workspace/symbol",
+          },
+          ["<Leader>Li"] = {
+            "<Cmd>LspInfo<CR>",
+            desc = "LSP information",
+            cond = function() return vim.fn.exists ":LspInfo" > 0 end,
+          },
+          ["<Leader>Ll"] = {
+            function() vim.lsp.codelens.refresh() end,
+            desc = "LSP CodeLens refresh",
+            cond = "textDocument/codeLens",
+          },
+          ["<Leader>LL"] = {
+            function() vim.lsp.codelens.run() end,
+            desc = "LSP CodeLens run",
+            cond = "textDocument/codeLens",
+          },
+          ["<Leader>LR"] = {
+            function() vim.lsp.buf.references() end,
+            desc = "Search references",
+            cond = "textDocument/references",
+          },
         },
       },
     },

@@ -47,8 +47,8 @@ return {
         -- second key is the lefthand side of the map
 
         -- navigate buffer tabs with `H` and `L`
-        L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        ["<A-L>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["<A-H>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bD"] = {
@@ -63,11 +63,22 @@ return {
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
-        ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
+        ["<Leader>la"] = false,
+        ["<Leader>lc"] = false,
+        ["<Leader>lf"] = false,
+        ["<Leader>lm"] = false,
+        ["<Leader>lr"] = false,
+        ["<Leader>ls"] = false,
+        ["<Leader>lS"] = false,
+        ["<Leader>lL"] = false,
       },
       t = {
         -- setting a mapping to false will disable it
         -- ["<esc>"] = false,
+      },
+      x = {
+        ["<Leader>lF"] = false,
       },
     },
   },
