@@ -89,6 +89,7 @@ return {
           function() vim.lsp.buf.hover() end,
           desc = "Hover symbol details",
         },
+        K = false,
         -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
         -- gD = {
         --   function() vim.lsp.buf.declaration() end,

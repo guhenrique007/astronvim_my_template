@@ -47,8 +47,8 @@ return {
 
           -- Moving
           ["<leader>j"] = { "J", desc = "Join line below" },
-          ["J"] = { "5j", desc = "Jump 5 lines for j" },
-          ["K"] = { "5k", desc = "Jump 5 lines for k" },
+          -- ["J"] = { "5j", desc = "Jump 5 lines for j" },
+          -- ["K"] = { "5k", desc = "Jump 5 lines for k" },
           ["<A-j>"] = { ":m+<cr>", desc = "Move to line below" }, -- need to enable alt key (MacOS)
           ["<M-j>"] = { ":m+<cr>", desc = "Move to line below" }, -- need to enable alt key
           ["<A-Down>"] = { ":m+<cr>", desc = "Move to line below" }, -- need to enable alt key (MacOS)
@@ -58,9 +58,11 @@ return {
           ["<leader>l"] = { "$", desc = "go to end of line" },
           ["<leader>h"] = { "_", desc = "go to start of line" },
           ["<A-l>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+          ["J"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
           ["<M-l>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
           ["<A-h>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
           ["<M-h>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+          ["K"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
           -- Split window
           ["<leader>v"] = { ":vs<cr>", desc = "Vertical Split" },
